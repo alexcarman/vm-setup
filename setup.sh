@@ -32,10 +32,10 @@ apt remove -y --purge firefox*
 
 #Install WhiteSur Theme with GTK and login screen
 #echo "----> Installing WhiteSur Theme"
-#mkdir -p /home/acarman/Development/WhiteSur-gtk-theme
-#git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git /home/acarman/Development/WhiteSur-gtk-theme
-#/home/acarman/Development/WhiteSur-gtk-theme/install.sh -N glassy 
-#/home/acarman/Development/WhiteSur-gtk-theme/tweaks.sh -g -c dark
+#mkdir -p $HOME/Development/WhiteSur-gtk-theme
+#git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git $HOME/Development/WhiteSur-gtk-theme
+#$HOME/Development/WhiteSur-gtk-theme/install.sh -N glassy 
+#$HOME/Development/WhiteSur-gtk-theme/tweaks.sh -g -c dark
 
 #Install FiraCode Nerd Font
 echo "----> Installing Nerd Font"
@@ -52,9 +52,9 @@ sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 echo "----> Installing Kubectl"
 apt install -y kubectl
 echo "----> Installing Kubectx and Kubens"
-mkdir -p /home/acarman/Development/kubectx
+mkdir -p $HOME/Development/kubectx
 mkdir -p /opt/kubectx
-git clone https://github.com/ahmetb/kubectx.git /home/acarman/Development/kubectx
+git clone https://github.com/ahmetb/kubectx.git $HOME/Development/kubectx
 wget https://github.com/ahmetb/kubectx/releases/download/v0.9.3/kubectx_v0.9.3_linux_x86_64.tar.gz
 wget https://github.com/ahmetb/kubectx/releases/download/v0.9.3/kubens_v0.9.3_linux_x86_64.tar.gz
 tar -zvxf kubectx_v0.9.3_linux_x86_64.tar.gz --directory /opt/kubectx
@@ -66,8 +66,8 @@ ln -s /opt/kubectx/kubens /usr/bin/kubens
 echo "----> Setting up autocompletions"
 kubectl completion bash >/etc/bash_completion.d/kubectl
 COMPDIR=$(pkg-config --variable=completionsdir bash-completion)
-ln -sf /home/acarman/Development/kubectx/completion/kubens.bash $COMPDIR/kubens
-ln -sf /home/acarman/Development/kubectx/completion/kubectx.bash $COMPDIR/kubectx
+ln -sf $HOME/Development/kubectx/completion/kubens.bash $COMPDIR/kubens
+ln -sf $HOME/Development/kubectx/completion/kubectx.bash $COMPDIR/kubectx
 
 #Install Terraform
 echo "----> Installing Terraform" 
