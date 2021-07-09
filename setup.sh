@@ -48,7 +48,7 @@ fc-cache -fv
 
 #Install Starship Prompt
 echo "----> Installing starship prompt"
-sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 
 #Install Kubectl, Kubectx, and Kubens(and autocompletion.)
 echo "----> Installing Kubectl"
@@ -85,6 +85,15 @@ rm -rf ./aws ./awscliv2.zip
 #Set Tilix to default terminal
 echo "----> Setting default terminal to Tilix"
 update-alternatives --set x-terminal-emulator /usr/bin/tilix.wrapper
+
+#Setup VM Shared Folders
+echo "----> Setup Automounting of VM Shared Folders"
+mkdir -p /mnt/hgfs
+echo ".host:/ /mnt/hgfs       fuse.vmhgfs-fuse        noauto,allow_other      0       0" | tee -a /etc/fstab
+printf "#!/bin/bash\n\n mount /mnt/hgfs\n" > /etc/rc.local
+chmod +x /etc/rc.local
+cp rc-local.service /etc/systemd/system/rc-local.service
+systemctl enable rc-local
 
 echo "I'm done, you need to untar your home directory backup and your .bashrc backup. Also use the tweaks tool to set the whitesur theme and the papirus icons if you so choose."
 exit 0
