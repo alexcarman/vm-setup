@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-if [[ $EUID -ne 0 -o "x${SUDO_USER}" = "x" ]]; then
+if [ $EUID -ne 0 ] || [ "x${SUDO_USER}" = "x" ]; then
    echo "This script must be called from sudo under the user account you wish to setup."
    exit 1
 fi
