@@ -24,7 +24,7 @@ apt upgrade -y
 
 #Install some basic needs
 echo "----> Installing some basic tools"
-apt install -y open-vm-tools-desktop vim tilix remmina gnome-tweaks code apt-transport-https curl papirus-icon-theme ca-certificates bash-completion gir1.2-gmenu-3.0 gnome-menus openconnect network-manager-openconnect network-manager-openconnect-gnome openvpn network-manager-openvpn-gnome fzf
+apt install -y open-vm-tools-desktop vim tilix remmina gnome-tweaks code apt-transport-https curl ca-certificates bash-completion gir1.2-gmenu-3.0 gnome-menus openconnect network-manager-openconnect network-manager-openconnect-gnome openvpn network-manager-openvpn-gnome fzf
 
 #Install Brave and Purge out Firefox
 echo "----> Installing Brave because FF sucks"
