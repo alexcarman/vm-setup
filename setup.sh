@@ -24,7 +24,7 @@ apt upgrade -y
 
 #Install some basic needs
 echo "----> Installing some basic tools"
-apt install -y open-vm-tools-desktop vim tilix remmina gnome-tweaks code apt-transport-https curl ca-certificates bash-completion gir1.2-gmenu-3.0 gnome-menus openconnect network-manager-openconnect network-manager-openconnect-gnome openvpn network-manager-openvpn-gnome fzf
+apt install -y open-vm-tools-desktop vim tilix remmina gnome-tweaks code apt-transport-https curl ca-certificates bash-completion gir1.2-gmenu-3.0 gnome-menus openconnect network-manager-openconnect network-manager-openconnect-gnome openvpn network-manager-openvpn-gnome fzf sassc gtk2-engines-murrine
 
 #Install Brave and Purge out Firefox
 echo "----> Installing Brave because FF sucks"
@@ -32,12 +32,17 @@ apt install -y brave-browser
 echo "----> Removing firefox"
 apt remove -y --purge firefox*
 
-#Install WhiteSur Theme with GTK and login screen
-#echo "----> Installing WhiteSur Theme"
-#mkdir -p $USER_HOME/Development/WhiteSur-gtk-theme
-#git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git $USER_HOME/Development/WhiteSur-gtk-theme
-#$USER_HOME/Development/WhiteSur-gtk-theme/install.sh -N glassy 
-#$USER_HOME/Development/WhiteSur-gtk-theme/tweaks.sh -g -c dark
+#Install Orchis Theme
+echo "----> Installing Orchis Theme"
+mkdir -p $USER_HOME/Development/Orchis-theme
+git clone https://github.com/vinceliuice/Orchis-theme.git $USER_HOME/Development/Orchis-theme
+$USER_HOME/Development/Orchis-theme/install.sh
+
+#Install Tela Circle Icon Theme
+echo "----> Installing Tela Circle Icon Theme"
+mkdir -p $USER_HOME/Development/Tela-circle-icon-theme
+git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git $USER_HOME/Development/Tela-circle-icon-theme
+$USER_HOME/Development/Tela-circle-icon-theme/install.sh
 
 #Install FiraCode Nerd Font
 echo "----> Installing Nerd Font"
@@ -94,6 +99,15 @@ printf "#!/bin/bash\n\n mount /mnt/hgfs\n" > /etc/rc.local
 chmod +x /etc/rc.local
 cp rc-local.service /etc/systemd/system/rc-local.service
 systemctl enable rc-local
+
+#Install Gnome Extensions
+echo "----> Installing Gnome Extensions"
+wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
+chmod +x gnome-shell-extension-installer
+for i in 3628 19 779 1112
+do
+	./gnome-shell-extnsion-installer $i
+done
 
 echo "I'm done, you need to untar your home directory backup and your .bashrc backup. Also use the tweaks tool to set the whitesur theme and the papirus icons if you so choose."
 exit 0
