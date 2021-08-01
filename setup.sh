@@ -106,8 +106,12 @@ wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell
 chmod +x gnome-shell-extension-installer
 for i in 3628 19 779 1112
 do
-	./gnome-shell-extnsion-installer $i
+	./gnome-shell-extension-installer $i
 done
+
+#Set Dock to not need edge pressure to unhide which is a problem on VMs
+echo"----> Setting the dock pressure to false for autohide"
+gsettings set org.gnome.shell.extensions.dash-to-dock require-pressure-to-show false
 
 echo "I'm done, you need to untar your home directory backup and your .bashrc backup. Also use the tweaks tool to set the whitesur theme and the papirus icons if you so choose."
 exit 0
