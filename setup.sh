@@ -24,7 +24,7 @@ apt upgrade -y
 
 #Install some basic needs
 echo "----> Installing some basic tools"
-apt install -y open-vm-tools-desktop vim tilix remmina gnome-tweaks code apt-transport-https curl ca-certificates bash-completion gir1.2-gmenu-3.0 gnome-menus openconnect network-manager-openconnect network-manager-openconnect-gnome openvpn network-manager-openvpn-gnome fzf sassc gtk2-engines-murrine
+apt install -y open-vm-tools-desktop vim tilix remmina gnome-tweaks code apt-transport-https curl ca-certificates bash-completion gir1.2-gmenu-3.0 gnome-menus openconnect network-manager-openconnect network-manager-openconnect-gnome openvpn network-manager-openvpn-gnome fzf sassc gtk2-engines-murrine graphicsmagick-imagemagick-compat jq httpie timeshift
 
 #Install Brave and Purge out Firefox
 echo "----> Installing Brave because FF sucks"
@@ -54,6 +54,8 @@ fc-cache -fv
 #Install Starship Prompt
 echo "----> Installing starship prompt"
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+echo "----> Installing the default TOML config for Starship"
+cp ./starship.toml $USER_HOME/.config
 
 #Install Kubectl, Kubectx, and Kubens(and autocompletion.)
 echo "----> Installing Kubectl"
@@ -75,6 +77,13 @@ kubectl completion bash >/etc/bash_completion.d/kubectl
 COMPDIR=$(pkg-config --variable=completionsdir bash-completion)
 ln -sf $USER_HOME/Development/kubectx/completion/kubens.bash $COMPDIR/kubens
 ln -sf $USER_HOME/Development/kubectx/completion/kubectx.bash $COMPDIR/kubectx
+
+#Install Kubeval
+echo "---> Installing Kubeval"
+wget https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
+tar xf kubeval-linux-amd64.tar.gz
+cp kubeval /usr/local/bin
+rm -rf kubeval*
 
 #Install Terraform
 echo "----> Installing Terraform" 

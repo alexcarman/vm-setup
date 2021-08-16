@@ -1,0 +1,70 @@
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = "bold blue"
+symbol = "🅰 "
+[aws.region_aliases]
+us-east-1 = "va"
+[battery]
+full_symbol = "🔋 "
+charging_symbol = "⚡️ "
+discharging_symbol = "💀 "
+[conda]
+format = "[$symbol$environment](dimmed green) "
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+read_only = "🔒"
+[docker_context]
+format = "via [🐋 $context](blue bold)"
+[git_branch]
+symbol = "🌱 "
+truncation_length = 4
+truncation_symbol = ""
+[git_commit]
+commit_hash_length = 4
+tag_symbol = "🔖 "
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[🍒 PICKING](bold red)"
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+untracked = "🤷‍"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
+[golang]
+format = "via [🏎💨 $version](bold cyan) "
+[helm]
+format = "via [⎈ $version](bold white) "
+[java]
+symbol = "🌟 "
+[kubernetes]
+format = 'on [⛵ $context \($namespace\)](dimmed green) '
+disabled = false
+[memory_usage]
+disabled = true
+threshold = -1
+symbol = " "
+style = "bold dimmed green"
+[nodejs]
+format = "via [🤖 $version](bold green) "
+[package]
+format = "via [🎁 $version](208 bold) "
+[perl]
+format = "via [🦪 $version]($style) "
+[php]
+symbol = " "
+[python]
+symbol = "👾 "
+pyenv_version_name = true
+[ruby]
+symbol = "🔺 "
+[rust]
+format = "via [⚙️ $version](red bold)"
+[terraform]
+format = "[🏎💨 $version]($style) "
