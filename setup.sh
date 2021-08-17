@@ -79,7 +79,7 @@ ln -sf $USER_HOME/Development/kubectx/completion/kubens.bash $COMPDIR/kubens
 ln -sf $USER_HOME/Development/kubectx/completion/kubectx.bash $COMPDIR/kubectx
 
 #Install Kubeval
-echo "---> Installing Kubeval"
+echo "----> Installing Kubeval"
 wget https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz &> /dev/null
 tar xf kubeval-linux-amd64.tar.gz &> /dev/null
 cp kubeval /usr/local/bin
@@ -108,15 +108,6 @@ printf "#!/bin/bash\n\n mount /mnt/hgfs\n" > /etc/rc.local
 chmod +x /etc/rc.local
 cp rc-local.service /etc/systemd/system/rc-local.service
 systemctl enable rc-local &> /dev/null
-
-#Install Gnome Extensions
-echo "----> Installing Gnome Extensions"
-wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer" &> /dev/null
-chmod +x gnome-shell-extension-installer
-for i in 3628 19 779 1112
-do
-    ./gnome-shell-extension-installer $i
-done
 
 #Set Dock to not need edge pressure to unhide which is a problem on VMs
 echo"----> Setting the dock pressure to false for autohide"
