@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 
 def get_config():
-    with open('config.yaml', 'r') as file:
+    with open('config/config.yaml', 'r') as file:
         app_config = yaml.safe_load(file)
     return app_config
 
@@ -31,8 +31,9 @@ def install_apt_pkg(pkg_name):
 
 
 def main():
+    global apt_cache
     app_config = get_config()
-    packages = app_config['packages']
+    packages = app_config['apt-packages']
     for package in packages:
         print("going to install:" + package)
     

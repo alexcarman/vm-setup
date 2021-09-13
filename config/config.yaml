@@ -1,3 +1,14 @@
-packages:
+apt-repositories:
+  terraform:
+    apt-key: https://apt.releases.hashicorp.com/gpg
+    app-repository: "deb [arch=amd64] https://apt.releases.hashicorp.com hirsute main"
+repositories:
+  brave-browser:
+    gpg: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    source: "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"
+  kubernetes:
+    gpg: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    source: "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main"
+apt-packages:
   - kubectl
   - kubectx
