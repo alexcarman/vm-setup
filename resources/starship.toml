@@ -68,3 +68,6 @@ symbol = "🔺 "
 format = "via [⚙️ $version](red bold)"
 [terraform]
 format = "[🏎💨 $version]($style) "
+[cmd_duration]
+min_time = 1000
+format = "underwent [$duration](bold yellow)"

@@ -55,7 +55,7 @@ fc-cache -fv &> /dev/null
 echo "----> Installing starship prompt"
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y &> /dev/null
 echo "----> Installing the default TOML config for Starship"
-cp ./starship.toml $USER_HOME/.config
+cp ../resource/starship.toml $USER_HOME/.config
 
 #Install Kubectl, Kubectx, and Kubens(and autocompletion.)
 echo "----> Installing Kubectl"
@@ -106,7 +106,7 @@ mkdir -p /mnt/hgfs
 echo ".host:/ /mnt/hgfs       fuse.vmhgfs-fuse        noauto,allow_other      0       0" | tee -a /etc/fstab
 printf "#!/bin/bash\n\n mount /mnt/hgfs\n" > /etc/rc.local
 chmod +x /etc/rc.local
-cp rc-local.service /etc/systemd/system/rc-local.service
+cp ../resources/rc-local.service /etc/systemd/system/rc-local.service
 systemctl enable rc-local &> /dev/null
 
 #Set Dock to not need edge pressure to unhide which is a problem on VMs
