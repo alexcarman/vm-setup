@@ -55,7 +55,7 @@ fc-cache -fv &> /dev/null
 echo "----> Installing starship prompt"
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y &> /dev/null
 echo "----> Installing the default TOML config for Starship"
-cp ../resource/starship.toml $USER_HOME/.config
+cp ../resources/starship.toml $USER_HOME/.config
 
 #Install Kubectl, Kubectx, and Kubens(and autocompletion.)
 echo "----> Installing Kubectl"
